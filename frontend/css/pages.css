@@ -756,7 +756,7 @@ a.notif__link:hover { border-color: var(--primary); }
 .notif__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--crimson); flex: none; }
 .import-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; }
 .import-summary .stat { padding: 12px; border-radius: var(--r-md); background: var(--surface-2); }
-.onboarding { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-4); border-color: var(--primary); }
+.onboarding { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-4); border-color: var(--primary); }
 .onboarding > div:first-child { flex: 1 1 380px; }
 .setting--form { align-items: flex-start; flex-wrap: wrap; }
 
