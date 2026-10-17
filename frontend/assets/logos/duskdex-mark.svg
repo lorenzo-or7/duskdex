@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">DuskDex — marca minimalista (proposta provisória)</title>
+  <defs>
+    <linearGradient id="dd-moon" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#B391CE"/>
+      <stop offset="0.55" stop-color="#9E79BC"/>
+      <stop offset="1" stop-color="#A73D5E"/>
+    </linearGradient>
+    <linearGradient id="dd-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B2033"/>
+      <stop offset="1" stop-color="#15111D"/>
+    </linearGradient>
+  </defs>
+  <!-- D em forma de lua crescente -->
+  <path fill="url(#dd-moon)" fill-rule="evenodd"
+        d="M12 8H33A24 24 0 0 1 33 56H12L16.5 52.5H31A20.6 20.6 0 0 0 31 11.5H16.5Z"/>
+  <!-- cartas sobrepostas -->
+  <path d="M8.5 17.5 14 15.5V48.5L8.5 46.5Z" fill="none" stroke="#9E79BC" stroke-opacity=".55" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M13.5 16.5 19.5 14.5V49.5L13.5 47.5Z" fill="none" stroke="#B391CE" stroke-opacity=".75" stroke-width="1.6" stroke-linejoin="round"/>
+  <rect x="19" y="16" width="15.5" height="32" rx="2.2" fill="url(#dd-card)" stroke="#D8BDE5" stroke-width="1.8"/>
+  <!-- estrela de quatro pontas -->
+  <path fill="#E0809E" d="M26.75 26.2Q27.5 31.25 32 32Q27.5 32.75 26.75 37.8Q26 32.75 21.5 32Q26 31.25 26.75 26.2Z"/>
+</svg>

@@ -1,0 +1,3 @@
+# Nada do backend é servido diretamente pelo Apache (use server.php ou aponte /api/v1 para backend/public)
+Require all denied
+Deny from all

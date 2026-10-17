@@ -1,0 +1,13 @@
+{
+  "name": "DuskDex",
+  "short_name": "DuskDex",
+  "description": "Sua coleção. Seu universo.",
+  "start_url": "./#/inicio",
+  "display": "standalone",
+  "background_color": "#0D0B12",
+  "theme_color": "#0D0B12",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/logos/duskdex-mark.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

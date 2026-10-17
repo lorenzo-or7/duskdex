@@ -1,0 +1,13 @@
+{
+  "name": "duskdex",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DuskDex — plataforma de coleção, fichários e decks Pokémon TCG (demo).",
+  "scripts": {
+    "serve": "php -S 127.0.0.1:8080 server.php",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:api": "php backend/tests/run.php",
+    "test:e2e": "python3 tests/e2e/run_e2e.py"
+  }
+}

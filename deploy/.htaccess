@@ -1,0 +1,40 @@
+# DuskDex — configuração para hospedagem Apache/LiteSpeed (cPanel e similares).
+# Funciona tanto na raiz do domínio quanto numa subpasta (ex.: seusite.com.br/duskdex/).
+
+Options -Indexes
+DirectoryIndex index.html
+
+# Arquivos que nunca podem ser baixados
+<FilesMatch "^(\.env.*|.*\.(sql|md|log|lock|sh|bat))$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Pastas internas: backend (código PHP) e storage (imagens enviadas, e-mails) — só pela API
+  RewriteRule ^(backend|storage)(/|$) - [F,L]
+  # API: /api/v1/... → api/index.php
+  RewriteRule ^api/v1(/.*)?$ api/index.php [L,QSA]
+</IfModule>
+
+# Base de cartas comprimida: entregue como está (o site descomprime)
+<IfModule mod_mime.c>
+  RemoveEncoding .gz
+  AddType application/gzip .gz
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  <FilesMatch "\.(html|js|css)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Política de segurança do site: só scripts do próprio site (+ o script inline do tema, pelo hash);
+  # imagens só das bases de cartas. Gerada por tools/build-deploy.py.
+  <FilesMatch "\.html$">
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' __INLINE_SCRIPT_HASHES__; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://assets.tcgdex.net https://images.pokemontcg.io https://images.scrydex.com; connect-src 'self' blob: data: https://api.tcgdex.net; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+  </FilesMatch>
+</IfModule>

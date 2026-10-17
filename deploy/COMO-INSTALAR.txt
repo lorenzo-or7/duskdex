@@ -1,0 +1,31 @@
+DuskDex — como colocar na sua hospedagem (FileZilla)
+====================================================
+
+Precisa de: hospedagem com PHP 8.1+ e MySQL (cPanel e similares).
+
+1) CRIE O BANCO (no painel da hospedagem, ex.: cPanel → "Bancos de dados MySQL")
+   - Crie um banco, ex.: duskdex      (o painel pode pôr um prefixo: conta_duskdex)
+   - Crie um usuário com senha forte  (ex.: conta_duskdex)
+   - Adicione o usuário ao banco marcando "TODOS OS PRIVILÉGIOS"
+   - Anote: nome do banco, usuário e senha.
+
+2) ENVIE OS ARQUIVOS (FileZilla)
+   - Antes: menu Servidor → "Forçar exibição de arquivos ocultos"
+     (senão o arquivo .htaccess, que é essencial, pode não ser enviado).
+   - Arraste a PASTA "duskdex" inteira para a pasta do site no servidor
+     (a que tem o index.html do seu site atual). Não substitua nada do site que já existe:
+     o DuskDex fica só dentro da pasta duskdex.
+
+3) INSTALE (pelo navegador) — faça logo depois do envio
+   - Abra:  https://SEU-DOMINIO/duskdex/instalar.php
+   - Confira se a verificação ficou toda verde, preencha os dados do banco e clique em Instalar.
+   - No fim, clique em "Abrir o site e criar sua conta".
+
+Pronto: o site fica em https://SEU-DOMINIO/duskdex/
+
+Depois
+- Para virar moderador da comunidade: crie sua conta no site, volte em instalar.php,
+  informe a senha do banco e o seu username.
+- Para atualizar o DuskDex: envie os arquivos novos por cima (NÃO apague o .env nem a pasta storage)
+  e abra instalar.php de novo para atualizar o banco.
+- Imagens enviadas pelos usuários ficam em duskdex/storage. Faça backup dessa pasta e do banco.

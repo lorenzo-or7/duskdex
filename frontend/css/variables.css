@@ -1,0 +1,168 @@
+/* =========================================================
+   DuskDex — design tokens
+   Paleta base do documento mestre, com ajustes de contraste
+   documentados ao lado (WCAG AA para texto).
+   ========================================================= */
+
+:root {
+  /* Tipografia */
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-ui: "Manrope", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.0625rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.875rem;
+  --fs-3xl: clamp(2.1rem, 1.6rem + 2vw, 3rem);
+  --fs-hero: clamp(2.6rem, 1.6rem + 4.2vw, 5.2rem);
+
+  /* Espaçamento (base 4) */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px;
+
+  /* Raios */
+  --r-xs: 4px; --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 22px; --r-pill: 999px;
+  --r-card: 4.6% / 3.3%; /* proporção de canto das cartas TCG */
+
+  /* Movimento */
+  --ease-out: cubic-bezier(.22, .9, .3, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --dur-1: 120ms; --dur-2: 200ms; --dur-3: 320ms; --dur-4: 600ms;
+
+  /* Layout */
+  --sidebar-w: 260px;
+  --sidebar-w-collapsed: 76px;
+  --topbar-h: 60px;
+  --bottomnav-h: 66px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --content-max: 1360px;
+
+  /* Carta TCG: 63 × 88 mm */
+  --card-ratio: 63 / 88;
+
+  /* Cores fixas da marca (independem do tema) */
+  --brand-violet: #9E79BC;
+  --brand-crimson: #A73D5E;
+  --brand-spectral: #D8BDE5;
+  --brand-night: #0D0B12;
+}
+
+/* ---------- Tema escuro (padrão da marca) ---------- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0D0B12;
+  --bg-2: #15111D;
+  --surface: #201827;
+  --surface-2: #2B2033;
+  --surface-3: #352940;
+  --overlay: rgba(8, 6, 12, 0.72);
+
+  --border: rgba(216, 189, 229, 0.09);
+  --border-2: rgba(216, 189, 229, 0.17);
+  --border-focus: #D8BDE5;
+
+  --text: #F3EDF4;
+  --text-2: #AAA0B4;   /* 7.4:1 sobre --bg */
+  --text-3: #857A90;   /* uso apenas em textos auxiliares grandes/ícones */
+
+  --primary: #9E79BC;  /* 5.2:1 sobre --bg */
+  --primary-hover: #B08DCC;
+  --primary-soft: rgba(158, 121, 188, 0.14);
+  --primary-ink: #140F1A; /* texto sobre --primary: 5.9:1 */
+
+  --crimson: #A73D5E;
+  --crimson-text: #E58AA6; /* crimson legível sobre fundo escuro: 6.6:1 */
+  --crimson-soft: rgba(167, 61, 94, 0.16);
+
+  --spectral: #D8BDE5;
+
+  --success: #6FCF97;
+  --success-soft: rgba(111, 207, 151, 0.13);
+  --warning: #E9B872;
+  --warning-soft: rgba(233, 184, 114, 0.13);
+  --danger: #F07A8E;
+  --danger-soft: rgba(240, 122, 142, 0.13);
+  --info: #8EB8E8;
+  --info-soft: rgba(142, 184, 232, 0.12);
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.25);
+  --shadow-2: 0 8px 24px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.3);
+  --shadow-3: 0 24px 64px rgba(0,0,0,.6), 0 6px 18px rgba(0,0,0,.35);
+  --glow-violet: 0 0 0 1px rgba(216,189,229,.18), 0 10px 40px -8px rgba(158,121,188,.45);
+
+  --skeleton-a: #1d1624;
+  --skeleton-b: #2a2033;
+
+  /* Fichário */
+  --binder-sleeve: rgba(255,255,255,0.05);
+  --binder-sleeve-edge: rgba(255,255,255,0.10);
+  --slot-empty: rgba(216,189,229,0.05);
+
+  --hero-veil: linear-gradient(180deg, rgba(13,11,18,0) 0%, rgba(13,11,18,.6) 70%, #0D0B12 100%);
+}
+
+/* ---------- Tema claro ---------- */
+:root[data-theme="light"] {
+  color-scheme: light;
+  /* Lilás em vez de branco: derivado do roxo espectral da marca (#D8BDE5) */
+  --bg: #D9CBE5;
+  --bg-2: #CEBEDC;
+  --surface: #E4D9ED;
+  --surface-2: #DBCFE7;
+  --surface-3: #CFC0DD;
+  --overlay: rgba(33, 25, 38, 0.48);
+
+  --border: rgba(64, 36, 88, 0.15);
+  --border-2: rgba(64, 36, 88, 0.26);
+  --border-focus: #5B3A75;
+
+  --text: #1E1623;
+  --text-2: #473C51;   /* 5.9:1 sobre --bg-2, 7.6:1 sobre --surface */
+  --text-3: #685C73;   /* ícones e textos auxiliares grandes */
+
+  --primary: #5B3A75;  /* 5.2:1 sobre --bg-2, 6.7:1 sobre --surface */
+  --primary-hover: #4C2F64;
+  --primary-soft: rgba(91, 58, 117, 0.14);
+  --primary-ink: #FFFFFF;
+
+  --crimson: #A73D5E;
+  --crimson-text: #862A48; /* 4.9:1 sobre --bg-2 */
+  --crimson-soft: rgba(167, 61, 94, 0.10);
+
+  --spectral: #5B3A75;
+
+  --success: #155231;
+  --success-soft: rgba(33, 122, 75, 0.10);
+  --warning: #674209;
+  --warning-soft: rgba(196, 135, 40, 0.14);
+  --danger: #8E1E37;
+  --danger-soft: rgba(179, 43, 71, 0.09);
+  --info: #1F4775;
+  --info-soft: rgba(45, 94, 149, 0.09);
+
+  --shadow-1: 0 1px 2px rgba(48,30,60,.08), 0 2px 8px rgba(48,30,60,.06);
+  --shadow-2: 0 10px 28px rgba(48,30,60,.12), 0 2px 6px rgba(48,30,60,.06);
+  --shadow-3: 0 28px 70px rgba(48,30,60,.20), 0 6px 18px rgba(48,30,60,.08);
+  --glow-violet: 0 0 0 1px rgba(118,84,143,.25), 0 10px 40px -10px rgba(118,84,143,.35);
+
+  --skeleton-a: #D2C3DF;
+  --skeleton-b: #E1D6EB;
+
+  --binder-sleeve: rgba(255,255,255,0.28);
+  --binder-sleeve-edge: rgba(255,255,255,0.6);
+  --slot-empty: rgba(118,84,143,0.06);
+
+  --hero-veil: linear-gradient(180deg, rgba(13,11,18,0) 0%, rgba(13,11,18,.55) 70%, #0D0B12 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0ms; --dur-2: 0ms; --dur-3: 0ms; --dur-4: 0ms;
+  }
+}

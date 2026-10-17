@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DuskDex — Sua coleção. Seu universo.</title>
+  <meta name="description" content="DuskDex: organize sua coleção Pokémon TCG, monte fichários físicos e virtuais, crie decks e acompanhe seus objetivos.">
+  <meta name="theme-color" content="#0D0B12" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#D9CBE5" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/duskdex-mark.svg">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Aplica o tema ANTES da primeira pintura (evita flash do tema errado) -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('dd.theme');
+        var theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : (window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+        var sb = localStorage.getItem('dd.sidebar');
+        if (sb === 'collapsed') document.documentElement.setAttribute('data-sidebar-pref', 'collapsed');
+      } catch (e) { /* armazenamento indisponível: mantém tema escuro */ }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="preconnect" href="https://api.tcgdex.net">
+  <link rel="preconnect" href="https://assets.tcgdex.net">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-skip>Pular para o conteúdo</a>
+  <div id="app" class="app" data-chrome="none">
+    <noscript>
+      <div style="padding:40px;text-align:center">O DuskDex precisa de JavaScript habilitado para funcionar.</div>
+    </noscript>
+  </div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

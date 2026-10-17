@@ -1,0 +1,22 @@
+{
+    "name": "duskdex/backend",
+    "description": "DuskDex — API REST (PHP 8 + MySQL 8). Sem dependências externas obrigatórias.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "DuskDex\\": "src/"
+        }
+    },
+    "scripts": {
+        "migrate": "php bin/migrate.php",
+        "test": "php tests/run.php"
+    }
+}

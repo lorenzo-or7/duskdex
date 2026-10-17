@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" width="1200" height="200">
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#040607"/><stop offset="1" stop-color="#BF40FA"/></linearGradient></defs>
+<path d="M0 0 H1200 V150 C 1000 190, 800 120, 600 160 S 200 190, 0 155 Z" fill="url(#g)"/>
+<path d="M0 0 H1200 V165 C 950 200, 750 140, 550 175 S 150 200, 0 170 Z" fill="url(#g)" opacity=".35"/>
+<text x="600" y="84.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff">DuskDex</text>
+<text x="600" y="126.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" fill="#ffffff" opacity=".85">Sua coleção. Seu universo. • Pokémon TCG</text></svg>
